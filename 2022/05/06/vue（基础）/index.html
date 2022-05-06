@@ -1,0 +1,264 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Vue（基础） | JustBecause的博客</title><meta name="keywords" content="-vue -语法"><meta name="author" content="别下会看场合的雨"><meta name="copyright" content="别下会看场合的雨"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="article">
+<meta property="og:title" content="Vue（基础）">
+<meta property="og:url" content="http://example.com/2022/05/06/vue%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/index.html">
+<meta property="og:site_name" content="JustBecause的博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/edafd135e9ab4d7086bb177613661af5.webp#pic_center">
+<meta property="article:published_time" content="2022-05-06T15:03:56.575Z">
+<meta property="article:modified_time" content="2022-05-06T16:36:23.397Z">
+<meta property="article:author" content="别下会看场合的雨">
+<meta property="article:tag" content="-vue -语法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/edafd135e9ab4d7086bb177613661af5.webp#pic_center"><link rel="shortcut icon" href="https://img-blog.csdnimg.cn/93638ed4837a42c48c4da61d49b89def.png"><link rel="canonical" href="http://example.com/2022/05/06/vue%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Vue（基础）',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-05-07 00:36:23'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><meta name="generator" content="Hexo 5.4.2"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://img-blog.csdnimg.cn/93638ed4837a42c48c4da61d49b89def.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">JustBecause的博客</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Vue（基础）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-05-06T15:03:56.575Z" title="发表于 2022-05-06 23:03:56">2022-05-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-05-06T16:36:23.397Z" title="更新于 2022-05-07 00:36:23">2022-05-07</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Vue/">-Vue</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Vue（基础）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><hr>
+<span id="more"></span>
+
+<h3 id="Vue简介"><a href="#Vue简介" class="headerlink" title="Vue简介"></a>Vue简介</h3><ul>
+<li><p>介绍</p>
+<p>动态构建用户界面的<strong>渐进式</strong> JavaScript 框架</p>
+</li>
+<li><p>官网</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#中文官网</span><br><span class="line">https://cn.vuejs.org/</span><br><span class="line">#英文官网</span><br><span class="line">https://vuejs.org/</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>特点</p>
+<ol>
+<li>遵循 <strong>MVVM</strong> 模式</li>
+<li>编码简洁, 体积小, 运行效率高, 适合移动/PC 端开发</li>
+<li>它本身只关注UI, 也可以引入其它第三方库开发项目</li>
+</ol>
+</li>
+<li><p>周边库</p>
+<ol>
+<li><p>vue-cli    vue 脚手架</p>
+</li>
+<li><p>vue-resource</p>
+</li>
+<li><p>axios</p>
+</li>
+<li><p>vue-router: 路由</p>
+</li>
+<li><p>vuex: 状态管理</p>
+</li>
+<li><p>element-ui: 基于vue 的UI 组件库(PC 端)</p>
+<p>……</p>
+</li>
+</ol>
+</li>
+</ul>
+<hr>
+<h3 id="Vue模板语法"><a href="#Vue模板语法" class="headerlink" title="Vue模板语法"></a>Vue模板语法</h3><p>Vue模板语法有两大类：</p>
+<ol>
+<li>插值语法：<ul>
+<li>功能：用于解析标签体内容。</li>
+<li>写法：语法:  ，xxxx 会作为js 表达式解析</li>
+</ul>
+</li>
+<li>指令语法：<ul>
+<li>功能: 解析标签属性、解析标签体内容、绑定事件</li>
+<li>举例：v-bind:href = ‘xxxx’ ，xxxx 会作为js 表达式被解析</li>
+<li>说明：Vue 中有有很多的指令（以v-开头），此处只是用v-bind 举个例子</li>
+</ul>
+</li>
+</ol>
+<p>Vue中有2种数据绑定的方式：</p>
+<ol>
+<li>单向绑定（v-bind）：数据只能从data流向页面</li>
+<li>双向绑定（v-model）：数据不仅能从data流向页面，还可以从页面流向data。</li>
+<li>备注：<ul>
+<li>双向绑定一般都应用在表单类元素上（如：input、select等）</li>
+<li>v-model:value 可以简写为v-model，因为v-model默认收集的就是value值。</li>
+</ul>
+</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">别下会看场合的雨</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/05/06/vue%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/">http://example.com/2022/05/06/vue%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">JustBecause的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/vue-%E8%AF%AD%E6%B3%95/">-vue -语法</a></div><div class="post_share"><div class="social-share" data-image="https://img-blog.csdnimg.cn/edafd135e9ab4d7086bb177613661af5.webp#pic_center" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://img-blog.csdnimg.cn/c435ab55c1834c43960d2a8b4a999062.png" target="_blank"><img class="post-qr-code-img" src="https://img-blog.csdnimg.cn/c435ab55c1834c43960d2a8b4a999062.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://img-blog.csdnimg.cn/fc1191c34eae41a8bf2e7bf0176b5796.png" target="_blank"><img class="post-qr-code-img" src="https://img-blog.csdnimg.cn/fc1191c34eae41a8bf2e7bf0176b5796.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/05/05/springboot%EF%BC%88%E7%9B%91%E6%8E%A7%EF%BC%89/"><img class="next-cover" src="https://img2.baidu.com/it/u=3417725755,2792366265&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=700&amp;h=400" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">springboot（监控）</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://img-blog.csdnimg.cn/93638ed4837a42c48c4da61d49b89def.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">别下会看场合的雨</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">Vue简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">Vue模板语法</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/05/06/vue%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/" title="Vue（基础）"><img src="https://img-blog.csdnimg.cn/edafd135e9ab4d7086bb177613661af5.webp#pic_center" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue（基础）"/></a><div class="content"><a class="title" href="/2022/05/06/vue%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/" title="Vue（基础）">Vue（基础）</a><time datetime="2022-05-06T15:03:56.575Z" title="发表于 2022-05-06 23:03:56">2022-05-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/05/springboot%EF%BC%88%E7%9B%91%E6%8E%A7%EF%BC%89/" title="springboot（监控）"><img src="https://img2.baidu.com/it/u=3417725755,2792366265&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=700&amp;h=400" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="springboot（监控）"/></a><div class="content"><a class="title" href="/2022/05/05/springboot%EF%BC%88%E7%9B%91%E6%8E%A7%EF%BC%89/" title="springboot（监控）">springboot（监控）</a><time datetime="2022-05-05T13:30:42.419Z" title="发表于 2022-05-05 21:30:42">2022-05-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/03/springboot%EF%BC%88%E6%B6%88%E6%81%AF%EF%BC%89/" title="springboot（消息）"><img src="https://img2.baidu.com/it/u=3417725755,2792366265&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=700&amp;h=400" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="springboot（消息）"/></a><div class="content"><a class="title" href="/2022/05/03/springboot%EF%BC%88%E6%B6%88%E6%81%AF%EF%BC%89/" title="springboot（消息）">springboot（消息）</a><time datetime="2022-05-03T13:57:26.335Z" title="发表于 2022-05-03 21:57:26">2022-05-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/01/springboot%EF%BC%88%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6%EF%BC%89/" title="springboot（发送邮件）"><img src="https://img2.baidu.com/it/u=3417725755,2792366265&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=700&amp;h=400" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="springboot（发送邮件）"/></a><div class="content"><a class="title" href="/2022/05/01/springboot%EF%BC%88%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6%EF%BC%89/" title="springboot（发送邮件）">springboot（发送邮件）</a><time datetime="2022-04-30T16:02:33.007Z" title="发表于 2022-05-01 00:02:33">2022-05-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/30/springboot%EF%BC%88%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%EF%BC%89/" title="springboot（定时任务）"><img src="https://img2.baidu.com/it/u=3417725755,2792366265&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=700&amp;h=400" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="springboot（定时任务）"/></a><div class="content"><a class="title" href="/2022/04/30/springboot%EF%BC%88%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%EF%BC%89/" title="springboot（定时任务）">springboot（定时任务）</a><time datetime="2022-04-30T07:30:53.511Z" title="发表于 2022-04-30 15:30:53">2022-04-30</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By 别下会看场合的雨</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'http://example.com/2022/05/06/vue%EF%BC%88%E5%9F%BA%E7%A1%80%EF%BC%89/'
+    this.page.identifier = '2022/05/06/vue（基础）/'
+    this.page.title = 'Vue（基础）'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Valine' === 'Disqus' || !true) {
+  if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
